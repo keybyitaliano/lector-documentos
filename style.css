@@ -1,0 +1,268 @@
+/* CONFIGURACIÓN DE COLORES Y ENTORNO OFIMÁTICO */
+:root {
+    --desktop-bg: #eef1f5; /* El gris clásico de fondo de Word */
+    --page-bg: #ffffff;    /* El papel blanco */
+    --text-color: #2b2b2b;
+    --panel-bg: #ffffff;
+    --border-color: #d1d5db;
+    --accent-color: #107c41; /* Verde Microsoft Word formal */
+    --btn-bg-hover: #f3f4f6;
+    --font-reader: 'Inter', sans-serif;
+    --sidebar-width: 280px;
+}
+
+[data-theme="sepia"] {
+    --desktop-bg: #e6dfcc;
+    --page-bg: #fdf6e3;
+    --text-color: #5c4731;
+    --panel-bg: #f4ebd5;
+    --border-color: #d3c7ae;
+    --accent-color: #8e6239;
+    --btn-bg-hover: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="dark"] {
+    --desktop-bg: #1e1e1e;
+    --page-bg: #2d2d2d;
+    --text-color: #e0e0e0;
+    --panel-bg: #252526;
+    --border-color: #3c3c3c;
+    --accent-color: #007acc;
+    --btn-bg-hover: #383838;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--desktop-bg);
+    color: var(--text-color);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    transition: background-color 0.2s;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* BARRA DE HERRAMIENTAS SUPERIOR */
+.toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 55px;
+    background-color: var(--panel-bg);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.controls-left, .controls-right {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+/* NAVEGACIÓN LATERAL (SIDEBAR) */
+.sidebar {
+    position: fixed;
+    top: 55px;
+    left: calc(-1 * var(--sidebar-width));
+    width: var(--sidebar-width);
+    bottom: 0;
+    background-color: var(--panel-bg);
+    border-right: 1px solid var(--border-color);
+    z-index: 90;
+    transition: left 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+body.sidebar-open .sidebar {
+    left: 0;
+}
+
+.sidebar-header {
+    padding: 16px 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.index-container {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.index-item {
+    display: block;
+    padding: 10px 20px;
+    font-size: 13px;
+    color: var(--text-color);
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.index-item:hover {
+    background-color: var(--btn-bg-hover);
+}
+
+.index-empty {
+    display: block;
+    padding: 20px;
+    font-size: 13px;
+    opacity: 0.5;
+    font-style: italic;
+}
+
+/* INTERFAZ GENERAL */
+.main-layout {
+    transition: margin-left 0.2s ease;
+    width: 100%;
+}
+
+body.sidebar-open .main-layout {
+    margin-left: var(--sidebar-width);
+}
+
+.file-upload-btn {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.file-upload-btn input[type="file"] {
+    display: none;
+}
+
+.file-name-text {
+    font-size: 13px;
+    opacity: 0.6;
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.modern-select {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    background-color: transparent;
+    color: var(--text-color);
+    font-size: 13px;
+    outline: none;
+    cursor: pointer;
+}
+
+.size-controls {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--panel-bg);
+}
+
+.size-controls span {
+    font-size: 13px;
+    font-weight: 500;
+    min-width: 35px;
+    text-align: center;
+}
+
+.icon-btn, .icon-btn-border {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.icon-btn-border {
+    border: 1px solid var(--border-color);
+}
+
+.icon-btn:hover, .icon-btn-border:hover {
+    background-color: var(--btn-bg-hover);
+}
+
+/* ENTORNO ESCRITORIO DE WORD */
+.word-desktop {
+    min-height: calc(100vh - 55px);
+    padding-top: 85px;
+    padding-bottom: 60px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+/* HOJA DE DOCUMENTO */
+.word-page {
+    background-color: var(--page-bg);
+    width: 812px;
+    min-height: 1120px;
+    padding: 80px 90px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0,0,0,0.05);
+    font-family: var(--font-reader);
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.word-page p {
+    margin-top: 0;
+    margin-bottom: 12px; /* Margen clásico entre párrafos de Word */
+}
+
+/* FORMATO EXCLUSIVO DE LOS TÍTULOS RECONSTRUIDOS */
+.word-page h3 {
+    font-family: var(--font-reader);
+    font-size: 1.35em;
+    font-weight: 600;
+    color: #111111;
+    margin-top: 32px;
+    margin-bottom: 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 6px;
+    line-height: 1.4;
+    word-wrap: break-word; /* Asegura un quiebre limpio si el título consolidado es extenso */
+}
+
+[data-theme="dark"] .word-page h3 {
+    color: #ffffff;
+}
+
+/* PANTALLA DE BIENVENIDA */
+.welcome-screen {
+    text-align: center;
+    margin-top: 100px;
+    max-width: 450px;
+}
+
+.welcome-screen h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.welcome-screen p {
+    font-size: 14px;
+    opacity: 0.6;
+    line-height: 1.5;
+}

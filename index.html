@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor de Documentos Profesional</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">ESTRUCTURA DEL DOCUMENTO</div>
+        <div id="indexContainer" class="index-container">
+            <span class="index-empty">Ningún encabezado detectado</span>
+        </div>
+    </div>
+
+    <div class="toolbar">
+        <div class="controls-left">
+            <label class="file-upload-btn">
+                Abrir archivo
+                <input type="file" id="filePicker" accept=".docx,.pdf">
+            </label>
+            <span id="fileNameDisplay" class="file-name-text">Ningún archivo seleccionado</span>
+            <button id="btnToggleSidebar" class="icon-btn-border">Navegación</button>
+        </div>
+        
+        <div class="controls-right">
+            <select id="fontSelect" class="modern-select">
+                <option value="'Inter', sans-serif">Moderna (Calibri / Arial)</option>
+                <option value="'Lora', serif">Formal (Times New Roman)</option>
+            </select>
+
+            <select id="themeSelect" class="modern-select">
+                <option value="light">Modo Impresión (Blanco)</option>
+                <option value="sepia">Modo Lectura (Atenuado)</option>
+                <option value="dark">Modo Oscuro</option>
+            </select>
+
+            <div class="size-controls">
+                <button id="btnDecrease" class="icon-btn">A-</button>
+                <span id="fontSizeDisplay">16px</span>
+                <button id="btnIncrease" class="icon-btn">A+</button>
+            </div>
+
+            <button id="btnFullscreen" class="icon-btn-border">Pantalla Completa</button>
+        </div>
+    </div>
+
+    <div id="mainLayout" class="main-layout">
+        <div class="word-desktop">
+            <div id="welcome" class="welcome-screen">
+                <h2>Visor de Documentos Estilo Word</h2>
+                <p>Cargue un archivo .docx o .pdf para renderizarlo directamente sobre un lienzo estructurado en formato de página formal.</p>
+            </div>
+            
+            <div id="reader" class="word-page" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
