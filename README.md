@@ -69,7 +69,7 @@ Queda estrictamente prohibida la reproducción, copia, distribución o modificac
 
  Desarrollador: **keybyitaliano**
 
-Sitio Web: **keybyitaliano.dev**
+Sitio Web: keybyitaliano.dev
 
 Correo de Contacto: **contacto@keybyitaliano.dev**
 
